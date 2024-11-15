@@ -1,0 +1,138 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
+
+WorldInfo {
+}
+Viewpoint {
+  orientation -0.3657019432709484 0.4057588179761308 0.8376287186590878 1.643978702140053
+  position -0.06422656629685347 -2.9050785940603285 1.2687487300830977
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+RectangleArena {
+  floorSize 1.5 1.5
+}
+Wall {
+  translation -0.5 0 0
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation 0.5 0 0
+  name "wall(6)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation 0 0.5 0
+  name "wall(9)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation -0.5 -0.5 0
+  name "wall(1)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation 0.5 -0.5 0
+  name "wall(4)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation 6.74634e-14 -0.5 0
+  rotation 0 0 1 1.5708
+  name "wall(2)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation 0.499996 0.5 0
+  rotation 0 0 1 1.5708
+  name "wall(8)"
+  size 0.5 0.01 0.1
+}
+Wall {
+  translation -0.48 -0.38 0
+  rotation 0 0 1 1.5708
+  name "wall(3)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -0.25 0.12 0
+  rotation 0 0 1 1.5708
+  name "wall(11)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -0.25 0.12 0
+  rotation 0 0 1 1.5708
+  name "wall(14)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -9.183e-07 0.37 0
+  rotation 0 0 1 1.5708
+  name "wall(12)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -2.48967e-13 0.12 0
+  rotation 0 0 1 1.5708
+  name "wall(17)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -0.490001 0.37 0
+  rotation 0 0 1 1.5708
+  name "wall(15)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -0.37 0.25 0
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "wall(13)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation 0.25 -0.38 0
+  rotation 0 0 1 1.5708
+  name "wall(5)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation -0.12 -0.25 0
+  rotation 0 0 -1 -5.307179586466759e-06
+  name "wall(16)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation 0.25 0.12 0
+  rotation 0 0 1 1.5708
+  name "wall(7)"
+  size 0.25 0.01 0.1
+}
+Wall {
+  translation 0.25 0.62 0
+  rotation 0 0 1 1.5708
+  name "wall(10)"
+  size 0.25 0.01 0.1
+}
+E-puck {
+  hidden position_0_0 960.5801736371044
+  hidden position_0_1 1224.9170512593598
+  hidden linearVelocity_0 -0.07073739574736695 -0.0037927896732976784 0.00014210751277937786
+  hidden angularVelocity_0 -0.0029218714410247093 -0.015260719896092042 -1.9252932217775003
+  hidden rotation_1 0 1 0 5.53600694580725
+  hidden linearVelocity_1 -0.12091596086765358 -0.006363575974406281 5.930197571902776e-05
+  hidden angularVelocity_1 0.3311023443122557 -6.286371097212824 -1.9285122199867817
+  hidden rotation_2 0 1 0 5.979101666520046
+  hidden linearVelocity_2 -0.020808460929557335 -0.0011877080154891525 7.5714480174628985e-06
+  hidden angularVelocity_2 0.038089118362598484 -0.7991887177844035 -1.9258310343708749
+  translation -0.37657420950624415 0.31044473022851116 -7.609380699362053e-05
+  rotation -0.0004991568018204127 -0.00016126527231358914 0.9999998624179901 3.132773082911933
+  controller "FollowingMaze"
+}

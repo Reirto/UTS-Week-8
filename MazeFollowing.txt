@@ -1,0 +1,70 @@
+from controller import Robot
+
+def run_robot(robot):   
+    timestep = int(robot.getBasicTimeStep())  
+    max_speed = 6.28  
+
+    # Initialize motors with correct names
+    left_motor = robot.getMotor('left wheel motor')  
+    right_motor = robot.getMotor('right wheel motor')  
+    
+    left_motor.setPosition(float('inf'))  
+    left_motor.setVelocity(0.0)  # Initial velocity set to zero for both motors
+    right_motor.setPosition(float('inf'))  
+    right_motor.setVelocity(0.0)
+    
+    # Initialize proximity sensors
+    prox_sensors = []  
+    for ind in range(8):  
+        sensor_name = 'ps' + str(ind)  
+        prox_sensors.append(robot.getDistanceSensor(sensor_name))  
+        prox_sensors[ind].enable(timestep)
+    
+    # Debug: Confirm that sensors are initialized
+    print("Sensors initialized.")  
+  
+    while robot.step(timestep) != -1:  
+        # Read the sensors
+        print("Sensor values:")
+        for ind in range(8):  
+            sensor_value = prox_sensors[ind].getValue()
+            print("ind: {}, val: {}".format(ind, sensor_value))  
+
+        # Process sensor data here.
+        left_wall = prox_sensors[5].getValue() > 80  
+        left_corner = prox_sensors[6].getValue() > 80
+        front_wall = prox_sensors[7].getValue() > 80  
+
+        # Set initial motor speeds
+        left_speed = max_speed  
+        right_speed = max_speed  
+
+        # Wall following behavior
+        if front_wall:  
+            print("Front wall detected - turning right in place")  
+            left_speed = max_speed  
+            right_speed = -max_speed  
+        else:  
+            if left_wall:  
+                print("Left wall detected - moving forward")  
+                left_speed = max_speed  
+                right_speed = max_speed  
+            else:  
+                print("No wall detected on left - turning left")  
+                left_speed = max_speed / 8
+                right_speed = max_speed  
+            
+            if left_corner:  
+                print("Left corner detected - driving right")  
+                left_speed = max_speed  
+                right_speed = max_speed / 8  # Adjust speed to steer away from corner
+                
+        # Send actuator commands
+        left_motor.setVelocity(left_speed)  
+        right_motor.setVelocity(right_speed)
+
+if __name__ == "__main__":  
+    # Create the Robot instance
+    my_robot = Robot()  
+    print("Starting robot")  # Debugging print
+    run_robot(my_robot)
